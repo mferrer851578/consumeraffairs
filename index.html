@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>ConsumerAffairs Practical Test</title>
+	<link href="styles/styles.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<h1>Mortgage Calculator</h1>
+		</div>
+	</header>
+	<section id="main-container" class="wrapper">
+		<form id="my-form">
+			<h2>Change the values to calculate your results</h2>
+			<div class="input-container">
+				<label for="YearOfMortgage">Year of Mortgage</label>
+				<span>1</span><input type="range" min="1" max="40" name="YearOfMortgage" class="slider" id="yom"
+					onchange="updateYomValue(this.value);"><span>40</span>
+				<div class="col-5"><input type="text" name="YearOfMortgageValue" id="yomvalue" value="" readonly></div>
+			</div>
+			<div class="input-container">
+				<label for="RateOfInterest">Rate of Interest(%)</label>
+				<span>0.1</span><input type="range" min="0.1" max="10" name="RateOfInterest" class="slider" id="roi"
+					onchange="updateRoiValue(this.value);"><span>10</span>
+				<div class="col-5"><input type="text" name="RateOfInterestValue" id="roivalue" value="" readonly></div>
+			</div>
+			<div class="input-container">
+				<label for="LoanAmount">Loan Amount</label>
+				<input type="text" name="LoanAmount" id="loan">
+				<div class="missing-msg" id="loan-error"></div>
+			</div>
+			<div class="col-2">
+				<div class="input-container">
+					<label for="AnnualTax">Annual Tax</label>
+					<input type="text" name="AnnualTax" id="atax">
+					<div class="missing-msg" id="atax-error"></div>
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="input-container">
+					<label for="AnnualInsurance">Annual Insurance</label>
+					<input type="text" name="AnnualInsurance" id="ains">
+					<div class="missing-msg" id="ains-error"></div>
+				</div>
+			</div>
+			<input class="btn" type="submit" name="calculate" value="Calculate" id="btn">
+		</form>
+		<div id="results-container">
+			<h2>Your results</h2>
+			<ul id="results">
+				<li>
+					<label for="PrincipalAndInterest">Principal & Interest</label>
+					<div class="result" id="pai">$ --</div>
+				</li>
+				<li>
+					<label for="Tax">Tax</label>
+					<div class="result" id="tax">$ --</div>
+				</li>
+				<li>
+					<label for="Insurance">Insurance</label>
+					<div class="result" id="ins">$ --</div>
+				</li>
+			</ul>
+			<div id="total-container">
+				<label for="TotalMonthlyPayment">Total Monthly Payment</label>
+				<div class="result" v id="tmp">$ --</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="/js/main.js"></script>
+</body>
+</html>
